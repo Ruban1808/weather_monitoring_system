@@ -103,7 +103,18 @@ The project uses SQLite for persistent data storage. The database file `weather_
 - [DB Browser for SQLite](https://sqlitebrowser.org/)
 
 ## Testing
-You can run unit tests to verify the functionality of the system. Ensure that you have the appropriate testing framework set up in your environment.
+To ensure the functionality of the system, unit tests can be run. The testing can cover the following areas:
+1. **System Setup**: Verify the application starts correctly and connects to the OpenWeatherMap API using a valid API key.
+2. **Data Retrieval**: Simulate API calls at configurable intervals and ensure the system retrieves weather data for specified locations correctly.
+3. **Temperature Conversion**: Test the conversion of temperature values from Kelvin to Celsius (or Fahrenheit) based on user preference.
+4. **Daily Weather Summary**: Simulate a sequence of weather updates and verify that daily summaries are calculated correctly, including average, maximum, and minimum temperatures and dominant weather condition.
+5. **Alerting Thresholds**: Define user-configurable thresholds for temperature or weather conditions and verify that alerts are triggered only when a threshold is violated.
+
+### Running Tests
+You can create a separate test file, e.g., `test_app.py`, and run it using:
+```bash
+python -m unittest test_app.py
+```
 
 ## Future Improvements
 - Implement additional features for better data analysis.
