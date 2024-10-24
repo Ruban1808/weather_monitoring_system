@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007BFF;
+    color: white;
+}
+
+main {
+    display: flex;
+    justify-content: space-around; /* Space out weather cards */
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.weather-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 280px; /* Set a fixed width for cards */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s; /* Add a hover effect */
+}
+
+.weather-card:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+.weather-card h2 {
+    color: #007BFF;
+}
+
+/* Centering the image */
+.image-container {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    margin-top: 10px; /* Add some space above the image */
+}
+
+.image-container img {
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#alerts {
+    margin-top: 20px;
+    background-color: #ffcccb;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%; /* Ensure it stretches the width */
+}
+
+#alerts h3 {
+    color: #ff0000;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}

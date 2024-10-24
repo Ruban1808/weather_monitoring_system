@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Weather Monitoring Dashboard</h1>
+    </header>
+    <main>
+        <section id="weather-data">
+            {% for city, data in weather_data.items() %}
+                <article class="weather-card">
+                    <h2>{{ city }}</h2>
+                    <p>Average Temperature: <strong>{{ (data.temps|sum / data.temps|length)|round(2) }} °C</strong></p>
+                    <p>Max Temperature: <strong>{{ data.max_temp }} °C</strong></p>
+                    <p>Min Temperature: <strong>{{ data.min_temp }} °C</strong></p>
+                    <p>Humidity: <strong>{{ data.humidity[-1] }} %</strong></p>
+                    <p>Wind Speed: <strong>{{ data.wind_speed[-1] }} m/s</strong></p>
+                    <p>Dominant Weather Condition: <strong>{{ data.dominant_conditions.keys() | first }}</strong></p>
+                    <div class="image-container">
+                        <img src="{{ url_for('static', filename=city + '_temperature_trend.png') }}" alt="Temperature Trend for {{ city }}">
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+        <aside id="alerts">
+            <h3>Alerts</h3>
+            <ul>
+                {% for alert in alerts %}
+                    <li>{{ alert }}</li>
+                {% endfor %}
+            </ul>
+        </aside>
+    </main>
+    <footer>
+        <p>&copy; 2024 Weather Monitoring Dashboard</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
